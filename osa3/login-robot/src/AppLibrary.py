@@ -29,5 +29,11 @@ class AppLibrary:
     def run_application(self):
         self._app.run()
 
+    #def create_user(self, username, password):
+    #    self._user_service.create_user(username, password)
     def create_user(self, username, password):
-        self._user_service.create_user(username, password)
+        try:
+            self._user_service.create_user(username, password)
+            self._io.write("User registered successfully")
+        except Exception as e:
+            self._io.write(str(e))
